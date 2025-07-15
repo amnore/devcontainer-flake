@@ -1,0 +1,13 @@
+{
+    "id": "flake",
+    "version": "0.0.1",
+    "name": "Nix Flake",
+    "dependsOn": {
+        "ghcr.io/devcontainers/features/nix:1": {
+	    "extraNixConfig": "experimental-features = nix-command flakes",
+	    "flakeUri": "none"
+	}
+    },
+    "updateContentCommand": ["nix", "develop", "${containerWorkspaceFolder}", "--command", "true"],
+    "postAttachCommand": ["nix", "develop", "${containerWorkspaceFolder}"]
+}
